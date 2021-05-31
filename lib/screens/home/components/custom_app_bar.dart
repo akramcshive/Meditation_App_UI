@@ -9,6 +9,7 @@ class CustomAppBar extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Stack(
+
       children: [
         // rotating the appbar because we can use same clipper in next screen
         Transform(

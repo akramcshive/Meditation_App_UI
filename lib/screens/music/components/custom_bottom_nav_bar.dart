@@ -70,24 +70,24 @@ class CustomBottomNavBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        '2.30',style: TextStyle(
-                        color: black.withOpacity(0.4),
-                        fontWeight: FontWeight.w500,
-                      ),
-                      ),
+                      // Text(
+                      //   '2.30',style: TextStyle(
+                      //   color: black.withOpacity(0.4),
+                      //   fontWeight: FontWeight.w500,
+                      // ),
+                      // ),
                       Text(
                         'Rainforest - Relaxing',style: TextStyle(
                         color: black,
                         fontWeight: FontWeight.bold,
                       ),
                       ),
-                      Text(
-                        '-0.50',style: TextStyle(
-                        color: black.withOpacity(0.4),
-                        fontWeight: FontWeight.w500,
-                      ),
-                      ),
+                      // Text(
+                      //   '-0.50',style: TextStyle(
+                      //   color: black.withOpacity(0.4),
+                      //   fontWeight: FontWeight.w500,
+                      // ),
+                      // ),
                     ],
                   ),
                 ),

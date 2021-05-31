@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -19,15 +20,15 @@ class HomeScreen extends StatelessWidget {
             CustomBody(),
 
             //custom curved appbar
-            CustomAppBar(),
+            // CustomAppBar(),
 
             //round profile picture
-            ProfilePicture(),
+            // ProfilePicture(),
 
-            CustomBottomNavigationBar(),
+            // CustomBottomNavigationBar(),
 
             //contains bottom navigation Icons and text
-            BottomNavigationIcons(),
+            // BottomNavigationIcons(),
 
 
             // we completed the first screen and lest moves to second screen Lets calls

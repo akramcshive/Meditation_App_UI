@@ -69,40 +69,57 @@ class CustomBody extends StatelessWidget {
                   Navigator.push(
                     context, MaterialPageRoute(builder: (_) => MusicScreen(),),);
                 },
-                child: Text('Meditation', style: TextStyle(
+                child: Text('Mindfulness', style: TextStyle(
                   color: white,
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
                 ),),
               ),
-              Text('discover happiness', style: TextStyle(
+              Text('Self Awareness', style: TextStyle(
                 color: white,
                 fontSize: 18,
-              ),),
+              ),
+
+              ),
               SizedBox(
                 height: size.height * 0.18,
               ),
-              Text('Daydream', style: TextStyle(
-                color: white,
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-              ),),
-              Text('go beyond the form', style: TextStyle(
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => MusicScreen(),),);
+                },
+                child: Text('Anxiety', style: TextStyle(
+                  color: white,
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),),
+              ),
+              Text('Feel Yourself', style: TextStyle(
                 color: white,
                 fontSize: 18,
-              ),),
+              ),
+
+              ),
               SizedBox(
                 height: size.height * 0.18,
               ),
-              Text('Sensations', style: TextStyle(
-                color: white,
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-              ),),
-              Text('feel the moment', style: TextStyle(
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => MusicScreen(),),);
+                },
+                child: Text('Muscle Relaxation', style: TextStyle(
+                  color: white,
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),),
+              ),
+              Text('Mind, Body, Spirit', style: TextStyle(
                 color: white,
                 fontSize: 18,
-              ),),
+              ),
+              ),
             ],
           )
         ],
