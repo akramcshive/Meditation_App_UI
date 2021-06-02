@@ -1,27 +1,14 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:meditation_app_ui/constants/constants.dart';
+import 'package:meditation_app_ui/provider/music/music.dart';
+import 'package:provider/provider.dart';
 
-class PlayButton extends StatefulWidget {
-  @override
-  _PlayButtonState createState() => _PlayButtonState();
-}
+class PlayButton extends StatelessWidget {
+  const PlayButton({Key key, @required this.togglePlayer})
+      : assert(togglePlayer != null),
+        super(key: key);
 
-class _PlayButtonState extends State<PlayButton> {
-  AudioPlayer audioPlayer = new AudioPlayer(mode: PlayerMode.MEDIA_PLAYER);
-  bool isPlaying = false;
-  String currentMusic = "";
-  IconData playPause = Icons.play_arrow;
-
-  startPlayer(String URL) async {
-    audioPlayer.play(URL);
-    isPlaying = true;
-  }
-
-  stopPlayer() {
-    // audioPlayer.play(url)
-    audioPlayer.stop();
-  }
+  final void Function() togglePlayer;
 
   @override
   Widget build(BuildContext context) {
@@ -47,36 +34,13 @@ class _PlayButtonState extends State<PlayButton> {
               ],
             )),
         child: IconButton(
-          onPressed: () {
-            setState(() {
-              isPlaying = true;
-              startPlayer(
-                  "https://songdownloadmp3free.com/wp-content/uploads/2020/04/Tum-Hi-Ho-Aashiqui-2-Hindi-Singer-Arijit-Singh.mp3");
-              icon:
-              Icon(
-                playPause = Icons.pause,
-              );
-            });
-            // if (isPlaying) {
-            //   setState(() {
-            //     audioPlayer.pause();
-            //     icon:
-            //     Icon(
-            //       playPause = Icons.pause,
-            //     );
-            //     isPlaying = false;
-            //   });
-            // }else{
-            //   audioPlayer.resume();
-            //   setState(() {
-            //     playPause = Icons.play_arrow;
-            //   });
-            // }
-          },
-          icon: Icon(
-            playPause,
-            color: white.withOpacity(0.9),
-            size: 40,
+          onPressed: togglePlayer,
+          icon: Consumer<MusicState>(
+            builder: (context, state, child) => Icon(
+              state.isPlaying ? Icons.pause : Icons.play_arrow,
+              color: white.withOpacity(0.9),
+              size: 40,
+            ),
           ),
         ),
       ),

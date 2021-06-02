@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meditation_app_ui/screens/home/components/bottom_navigation_icons.dart';
-import 'package:meditation_app_ui/screens/home/components/custom_app_bar.dart';
 import 'package:meditation_app_ui/screens/home/components/custom_body.dart';
-import 'package:meditation_app_ui/screens/home/components/custom_bottom_navigation_bar.dart';
-import 'package:meditation_app_ui/screens/home/components/profile_picture.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

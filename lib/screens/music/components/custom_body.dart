@@ -1,45 +1,21 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:meditation_app_ui/constants/constants.dart';
 import 'package:meditation_app_ui/data/data.dart';
+import 'package:meditation_app_ui/provider/music/music.dart';
 import 'package:meditation_app_ui/screens/music/components/custom_header.dart';
+import 'package:provider/provider.dart';
 
-class CustomBody extends StatefulWidget {
-  @override
-  _CustomBodyState createState() => _CustomBodyState();
-}
+class CustomBody extends StatelessWidget {
+  const CustomBody({Key key, @required this.startPlayer})
+      : assert(startPlayer != null),
+        super(key: key);
 
-class _CustomBodyState extends State<CustomBody> {
+  final void Function(MusicState state, {String url}) startPlayer;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    bool isPlaying = false;
-    String currentSong = "";
-    AudioPlayer audioPlayer = new AudioPlayer(mode: PlayerMode.MEDIA_PLAYER);
-
     double listHeight = ((size.height * 0.06) * songs.length).toDouble();
 
-
-    startPlayer(String url) async {
-      if (isPlaying && currentSong != url) {
-        audioPlayer.pause();
-        int result = await audioPlayer.play(url);
-        if (result == 1) {
-          setState(() {
-            currentSong = url;
-          });
-        }
-      } else if (!isPlaying) {
-        int result = await audioPlayer.play(url);
-        if (result == 1) {
-          setState(() {
-            isPlaying = true;
-          });
-        }
-      }
-    }
-
-    
     return Material(
       child: Column(
         children: [
@@ -60,21 +36,14 @@ class _CustomBodyState extends State<CustomBody> {
                   itemExtent: size.height * 0.055,
                   itemBuilder: (context, index) => ListTile(
                         onTap: () {
+                          var musicState =
+                              Provider.of<MusicState>(context, listen: false);
                           String urlPlay = songs[index].url;
-                          debugPrint("this is url played $urlPlay");
-                          startPlayer(urlPlay);
+                          print("this is url played $urlPlay");
+                          startPlayer(musicState, url: urlPlay);
                           String meditateName = songs[index].name;
-                          debugPrint("this is name played $meditateName");
-                          // pausePlayer();
-                          print("$isPlaying");
-                          if(isPlaying){
-                            audioPlayer.pause();
-                            setState(() {
-                              isPlaying = false;
-                            });
-                          }else{
-                            audioPlayer.resume();
-                          }
+                          print("this is name played $meditateName");
+                          print("${musicState.isPlaying}");
                         },
                         leading: Icon(
                           index == 0

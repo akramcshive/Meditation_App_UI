@@ -1,27 +1,25 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:meditation_app_ui/screens/home/home_screen.dart';
+import 'package:meditation_app_ui/provider/music/music.dart';
+import 'package:meditation_app_ui/screens/music/music_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  AudioPlayer audioPlayer = AudioPlayer();
-  playMusic(){
-    audioPlayer.play('https://gaana.com/song/tujhe-kitna-chahne-lage');
-  }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Meditation App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return ChangeNotifierProvider<MusicState>(
+      create: (context) => MusicState(),
+      child: MaterialApp(
+        title: 'Meditation App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: MusicScreen(),
       ),
-      home: HomeScreen(),
     );
-
   }
 }
